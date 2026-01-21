@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Vars & Reset */
+:root {
+  --bg-dark: #0a0a0a; /* Slightly darker for better contrast */
+  --text-white: #ffffff;
+  --text-gray: #9ca3af; /* zinc-400 */
+  
+  --primary: #3b82f6; /* blue-500 */
+  --primary-glow: rgba(59, 130, 246, 0.5);
+  
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
+  background-attachment: fixed;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* ... keep existing utilities ... */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Components */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn {
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+/* ... existing btn styles ... */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 20px -5px var(--primary-glow);
+}
+.btn-primary:hover { 
+  background: #2563eb; 
+  transform: translateY(-1px);
+  box-shadow: 0 0 25px -5px var(--primary-glow);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid var(--glass-border);
+}
+.btn-secondary:hover { 
+  background: rgba(255, 255, 255, 0.1); 
+  border-color: var(--glass-highlight);
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  box-shadow: 0 0 20px -5px rgba(124, 58, 237, 0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.btn-gradient:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px -5px rgba(124, 58, 237, 0.6);
+}
+
+/* ... keep text-gradient ... */
+.text-gradient {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text; /* Standard property */
+}
+
+/* Enhanced Action Button for Wallet */
+.action-btn {
+  background: none;
+  border: none;
+  outline: none;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.action-btn:active {
+  transform: scale(0.95);
+}
